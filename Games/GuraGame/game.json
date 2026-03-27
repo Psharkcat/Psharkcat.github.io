@@ -1,0 +1,14 @@
+{
+  "title": "Gura Game",
+  "description": "It's a Game",
+  "version": "0.0.1",
+  "author": "Psharkcat",
+  "releaseDate": "2026-03-27",
+  "tags": [
+    "demo",
+    "platformer"
+  ],
+  "thumbnail": "guragame.png",
+  "controls": "Arrow keys to move, Space for stuff, Escape to pause",
+  "featured": true
+}

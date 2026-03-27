@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Game — PSHARKCAT</title>
+  <meta name="description" id="page-desc" content="Play this game on Psharkcat's indie game portal." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="coi-serviceworker.js"></script>
+</head>
+
+<body class="game-page">
+
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <div class="nav-logo">
+        <a href="index.html" class="nav-back-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="m15 18-6-6 6-6" />
+          </svg>
+          <img src="assets/logo.png" alt="Psharkcat Logo" class="nav-logo-img" />
+          <span class="nav-logo-text">PSHARKCAT</span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html#games" class="nav-link">← All Games</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== GAME LAYOUT ===== -->
+  <main class="game-layout">
+
+    <!-- Iframe Panel -->
+    <section class="game-iframe-panel" id="game-iframe-panel">
+      <div class="iframe-toolbar">
+        <span class="iframe-title" id="iframe-game-title">Loading…</span>
+        <div class="iframe-actions">
+          <button class="iframe-btn" id="btn-reload" title="Reload game">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10" />
+              <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+            </svg>
+          </button>
+          <button class="iframe-btn" id="btn-fullscreen" title="Fullscreen">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              id="fullscreen-icon-expand">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+            </svg>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+              id="fullscreen-icon-collapse" style="display:none">
+              <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="iframe-container" id="iframe-container">
+        <div class="iframe-loading" id="iframe-loading">
+          <div class="spinner"></div>
+          <p>Starting game…</p>
+        </div>
+        <div class="iframe-error hidden" id="iframe-error">
+          <span class="state-icon">⚠️</span>
+          <p id="iframe-error-msg">Could not load game.</p>
+          <button class="btn-primary" id="btn-retry">Retry</button>
+        </div>
+        <iframe id="game-frame" class="game-frame hidden" allow="autoplay; fullscreen; cross-origin-isolated" allowfullscreen
+          title="Game"></iframe>
+      </div>
+    </section>
+
+    <!-- Info Sidebar -->
+    <aside class="game-sidebar" id="game-sidebar">
+      <div class="sidebar-loading" id="sidebar-loading">
+        <div class="spinner"></div>
+      </div>
+      <div class="sidebar-content hidden" id="sidebar-content">
+
+        <div class="sidebar-thumb-wrap">
+          <img id="sidebar-thumb" class="sidebar-thumb" src="" alt="" />
+          <div class="sidebar-thumb-fallback hidden" id="sidebar-thumb-fallback">🎮</div>
+        </div>
+
+        <h1 class="sidebar-title" id="sidebar-title"></h1>
+
+        <div class="sidebar-badges" id="sidebar-badges">
+          <span class="version-badge" id="badge-version"></span>
+          <span class="featured-badge hidden" id="badge-featured">⭐ Featured</span>
+        </div>
+
+        <p class="sidebar-desc" id="sidebar-desc"></p>
+
+        <div class="meta-grid">
+          <div class="meta-item" id="meta-author-wrap">
+            <span class="meta-label">Author</span>
+            <span class="meta-val" id="meta-author"></span>
+          </div>
+          <div class="meta-item" id="meta-date-wrap">
+            <span class="meta-label">Released</span>
+            <span class="meta-val" id="meta-date"></span>
+          </div>
+          <div class="meta-item" id="meta-controls-wrap">
+            <span class="meta-label">Controls</span>
+            <span class="meta-val" id="meta-controls"></span>
+          </div>
+        </div>
+
+        <div class="sidebar-tags" id="sidebar-tags"></div>
+
+        <a href="index.html#games" class="btn-outline sidebar-back">
+          ← Back to All Games
+        </a>
+      </div>
+    </aside>
+
+  </main>
+
+  <script src="js/game.js"></script>
+</body>
+
+</html>

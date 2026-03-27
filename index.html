@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSHARKCAT — Game Portal</title>
+  <meta name="description"
+    content="Psharkcat's indie game portal. Play browser-based Godot games right in your browser – no download needed." />
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="coi-serviceworker.js"></script>
+</head>
+
+<body>
+
+  <!-- ===== BACKGROUND PARTICLES ===== -->
+  <canvas id="particles-canvas"></canvas>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header class="site-header">
+    <nav class="nav-inner">
+      <div class="nav-logo">
+        <img src="assets/logo.png" alt="Psharkcat Logo" class="nav-logo-img" />
+        <span class="nav-logo-text">PSHARKCAT</span>
+      </div>
+      <div class="nav-links">
+        <a href="#games" class="nav-link">Games</a>
+        <a href="#about" class="nav-link">About</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">🎮 Indie Game Portal</div>
+      <h1 class="hero-title">
+        <span class="gradient-text">PSHARKCAT</span>
+      </h1>
+      <p class="hero-subtitle">Play browser-based Godot games — no download, no install.<br />Just click and play.</p>
+      <a href="#games" class="btn-primary">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M8 5v14l11-7z" />
+        </svg>
+        Browse Games
+      </a>
+    </div>
+    <div class="hero-visual">
+      <img src="assets/logo.png" alt="Psharkcat" class="hero-logo-anim" />
+      <div class="hero-glow"></div>
+    </div>
+  </section>
+
+  <!-- ===== GAMES SECTION ===== -->
+  <section class="games-section" id="games">
+    <div class="section-header">
+      <h2 class="section-title">All Games</h2>
+      <p class="section-sub">Click any game to play it right in your browser</p>
+    </div>
+
+    <!-- Search & Filter -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+          stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
+        </svg>
+        <input type="text" id="search-input" class="search-input" placeholder="Search games…" />
+      </div>
+      <div class="tag-filters" id="tag-filters">
+        <button class="tag-btn active" data-tag="all">All</button>
+      </div>
+    </div>
+
+    <!-- Game Cards Grid -->
+    <div class="games-grid" id="games-grid">
+      <!-- JS populated -->
+    </div>
+
+    <!-- Loading / Empty states -->
+    <div class="state-loading" id="state-loading">
+      <div class="spinner"></div>
+      <span>Loading games…</span>
+    </div>
+    <div class="state-empty hidden" id="state-empty">
+      <span class="state-icon">🎮</span>
+      <p>No games found. Try a different search.</p>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="about-section" id="about">
+    <div class="about-card glass-card">
+      <div class="about-icon">🦈</div>
+      <h2>About Psharkcat</h2>
+      <p>
+        Indie game developer making fun, experimental browser games with <strong>Godot Engine</strong>.
+        All games run entirely in your browser — built with love and lots of caffeine.
+      </p>
+      <div class="about-links">
+        <a href="https://github.com/Psharkcat" target="_blank" rel="noopener" class="btn-outline">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.014-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0 1 12 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.741 0 .269.18.579.688.481C19.138 20.161 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
+          </svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <p>© 2025 Psharkcat · Built with <span class="heart">♥</span> and Godot Engine</p>
+  </footer>
+
+  <!-- ===== CARD TEMPLATE ===== -->
+  <template id="card-template">
+    <article class="game-card" role="button" tabindex="0">
+      <div class="card-thumb-wrap">
+        <img class="card-thumb" src="" alt="" loading="lazy" />
+        <div class="card-thumb-fallback">🎮</div>
+        <div class="card-overlay">
+          <div class="play-btn">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="card-featured-badge hidden">⭐ Featured</div>
+      </div>
+      <div class="card-body">
+        <div class="card-title-row">
+          <h3 class="card-title"></h3>
+          <span class="card-version"></span>
+        </div>
+        <p class="card-desc"></p>
+        <div class="card-tags"></div>
+        <div class="card-meta">
+          <span class="card-author"></span>
+          <span class="card-date"></span>
+        </div>
+      </div>
+    </article>
+  </template>
+
+  <script src="js/main.js"></script>
+</body>
+
+</html>
